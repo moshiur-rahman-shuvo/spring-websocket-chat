@@ -3,7 +3,7 @@ name: Build and deploy chitchat app
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   build-deploy:
     name: Build and Deploy chitchat app
