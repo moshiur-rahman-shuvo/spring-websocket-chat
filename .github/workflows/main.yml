@@ -1,0 +1,27 @@
+name: Build and deploy chitchat app
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-deploy:
+    name: Build and Deploy chitchat app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: setup jdk17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: 17
+
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
+
+      - name: Build the application
+        run:
+          mvn clean
+          mvn -B package --file pom.xml
