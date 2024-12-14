@@ -4,6 +4,21 @@ on:
   push:
     branches:
       - master
+
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'Environment to deploy to (e.g., dev, staging, production)'
+        required: false
+        default: 'dev'
+      branch_name:
+        description: 'Branch to build (default is master)'
+        required: false
+        default: 'master'
+      docker_image_tag:
+        description: 'Custom Docker image tag'
+        required: false
+        default: 'latest'
 jobs:
   build-deploy:
     name: Build and Deploy chitchat app
