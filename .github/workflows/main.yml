@@ -1,4 +1,4 @@
-name: Build and deploy chitchat app
+name: Build and deploy chitchat
 
 on:
   push:
